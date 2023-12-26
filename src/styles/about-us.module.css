@@ -1,0 +1,159 @@
+.about-us-container {
+  padding: 2rem 5% 5%;
+  background: var(--white);
+}
+
+.arrow-down {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.who-are-we {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+}
+
+.title {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.title h1 {
+  color: var(--black);
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 136.023%;
+  letter-spacing: 0.09rem;
+}
+
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.body p {
+  flex: 1;
+  color: #000;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 169.023%;
+  letter-spacing: 0.0375rem;
+}
+
+.img-container {
+  position: relative;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.bg-svg {
+  opacity: 0.4;
+  position: absolute;
+  right: 10%;
+  left: 10%;
+  top: 15%;
+  z-index: 1;
+}
+
+.img-child-wrapper {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.img-child-wrapper img {
+  width: 10.5625rem;
+  height: 13.96094rem;
+}
+
+.first-img::before {
+  content: "";
+  position: absolute;
+  width: 10rem;
+  height: 13rem;
+  right: 0%;
+  top: 7%;
+  border: 1px solid black;
+  z-index: 8;
+}
+
+.first-img img {
+  width: 10.5625rem;
+  height: 13.96094rem;
+  z-index: 10;
+  position: absolute;
+  right: 3%;
+  top: 10%;
+}
+
+.second-img::before {
+  content: "";
+  position: absolute;
+  width: 10rem;
+  height: 13rem;
+  left: 0%;
+  bottom: 7%;
+  border: 1px solid black;
+  z-index: 8;
+}
+
+.second-img img {
+  width: 10.5625rem;
+  height: 13.96094rem;
+  z-index: 10;
+  position: absolute;
+  left: 3%;
+  bottom: 10%;
+}
+
+.what-we-offer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.offer-card {
+  background-color: var(--green);
+  display: flex;
+  flex: 1;
+  max-width: 23rem;
+  padding: 6.875rem 2.875rem 7rem 2.875rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  border-radius: 1.25rem;
+}
+
+.offer-card span {
+  height: 100px;
+  width: 100px;
+}
+
+.offer-card h3 {
+  color: #fff;
+  text-align: center;
+  font-size: 1.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 136.023%;
+  letter-spacing: 0.0525rem;
+}

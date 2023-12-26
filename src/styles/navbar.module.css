@@ -1,0 +1,74 @@
+.navbar {
+  padding-top: 5%;
+  display: flex;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-container {
+  padding: 0.25rem 5%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.5rem;
+}
+
+.nav-icon span:first-child img {
+  width: 76px;
+  height: 54px;
+}
+
+.nav-menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.nav-item a {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-style: normal;
+  padding-inline: 0.5rem;
+  margin-bottom: 2px;
+}
+
+.nav-item span {
+  height: 2px;
+  border-radius: 2px;
+  width: 100%;
+  background: transparent;
+}
+
+.bottom {
+  animation: slideIn 0.3s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    background: var(--yellow);
+  }
+  to {
+    transform: translateX(0);
+    background: var(--yellow);
+  }
+}
