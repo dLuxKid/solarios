@@ -1,8 +1,7 @@
 import styles from "../styles/navbar.module.css";
 
-import logo from "../img/solarios-icon.svg";
-import name from "../img/solarios-icon-name.svg";
 import { useState } from "react";
+import Icon from "./icon";
 
 const nav_items = [
   { name: "Home", href: "#home" },
@@ -16,14 +15,7 @@ export default function Navbar() {
   return (
     <nav className={styles.navbar}>
       <div className={styles["nav-container"]}>
-        <div className={styles["nav-icon"]}>
-          <span>
-            <img src={logo} />
-          </span>
-          <span>
-            <img src={name} />
-          </span>
-        </div>
+        <Icon />
         <div>
           <ul className={styles["nav-menu"]}>
             {nav_items.map((item, idx) => (

@@ -1,0 +1,11 @@
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.5rem;
+}
+
+.nav-icon span:first-child img {
+  width: 76px;
+  height: 54px;
+}

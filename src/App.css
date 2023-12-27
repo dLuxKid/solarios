@@ -53,3 +53,7 @@ section {
   min-height: 100svh;
   position: relative;
 }
+
+ul {
+  list-style: none;
+}
