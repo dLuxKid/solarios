@@ -1,0 +1,107 @@
+.card-card {
+  transition: all 300ms ease;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: relative;
+  background-color: var(--black);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.card-card:hover {
+  transform: scale(1.05);
+}
+
+.react-stacked-center-carousel-slide-0 .card-card {
+  cursor: default;
+}
+
+.react-stacked-center-carousel-slide-0 .card-card:hover {
+  transform: none;
+}
+
+.fill {
+  width: 100%;
+  height: 100%;
+}
+
+.card-card .cover-image {
+  object-fit: cover;
+}
+
+.card-card .cover {
+  position: absolute;
+  transition: opacity 300ms ease;
+}
+.react-stacked-center-carousel-slide-0 .card-card .cover {
+  transition: opacity 300ms ease, z-index 0ms 300ms;
+}
+
+.card-card .cover.on {
+  opacity: 1;
+  z-index: 1;
+}
+
+.card-card .cover.off {
+  opacity: 0;
+  z-index: -1;
+}
+
+.card-card .detail {
+  display: flex;
+}
+
+.card-card .description {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-card .description img {
+  max-width: 15rem;
+  max-height: 20rem;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: start;
+  justify-content: center;
+}
+
+.info h1 {
+  color: #fff;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 136.023%;
+  letter-spacing: 0.076rem;
+}
+
+.info h3 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 136.023%;
+  letter-spacing: 0.057rem;
+}
+
+.info p {
+  color: #fff;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 136.023%;
+  letter-spacing: 0.03169rem;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 0.5rem;
+}

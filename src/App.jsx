@@ -2,20 +2,26 @@ import "./App.css";
 
 import herosectionStyle from "./styles/herosection.module.css";
 import aboutUs from "./styles/about-us.module.css";
+import projectStyles from "./styles/projects.module.css";
+import testimonialStyles from "./styles/testimonial.module.css";
 
 import Navbar from "./components/navbar";
+import Footer from "./components/footer";
+import Card from "./components/project-card";
 
 import logo from "./img/solarios-icon.svg";
 import img1 from "./img/1.png";
 import img2 from "./img/2.png";
 import img3 from "./img/3.png";
 import img4 from "./img/4.png";
-import Footer from "./components/footer";
+import yellowArrow from "./img/yellow-arr.svg";
+import greenArrow from "./img/green-arr.svg";
+import Carousel from "./components/carousel";
 
 function App() {
   return (
-    <main>
-      <section className={herosectionStyle.herosection}>
+    <main id="#home">
+      <div className={herosectionStyle.herosection}>
         <Navbar />
         <div className={herosectionStyle.container}>
           <div className={herosectionStyle.wrapper}>
@@ -70,25 +76,11 @@ function App() {
             <p>Happy customers</p>
           </div>
         </div>
-      </section>
+      </div>
       <section className={aboutUs["about-us-container"]} id="#about">
         <div className={aboutUs["who-are-we"]}>
-          <div className={aboutUs["arrow-down"]}>
-            <span>
-              <svg
-                width="18"
-                height="91"
-                viewBox="0 0 18 91"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  id="Vector 2"
-                  d="M9 91L17.6603 76H0.339746L9 91ZM7.5 0V2.84375H10.5V0H7.5ZM7.5 8.53125V14.2188H10.5V8.53125H7.5ZM7.5 19.9062V25.5938H10.5V19.9062H7.5ZM7.5 31.2812V36.9688H10.5V31.2812H7.5ZM7.5 42.6562V48.3438H10.5V42.6562H7.5ZM7.5 54.0312V59.7188H10.5V54.0312H7.5ZM7.5 65.4062V71.0938H10.5V65.4062H7.5ZM7.5 76.7812V82.4688H10.5V76.7812H7.5Z"
-                  fill="#487145"
-                />
-              </svg>
-            </span>
+          <div className="arrow">
+            <img src={greenArrow} alt="arrow pointing downwards" />
           </div>
           <div className={aboutUs.title}>
             <h1>Who are we</h1>
@@ -133,23 +125,9 @@ function App() {
             </div>
           </div>
         </div>
-        <div className={aboutUs["what-we-offer"]}>
-          <div className={aboutUs["arrow-down"]}>
-            <span>
-              <svg
-                width="18"
-                height="91"
-                viewBox="0 0 18 91"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  id="Vector 2"
-                  d="M9 91L17.6603 76H0.339746L9 91ZM7.5 0V2.84375H10.5V0H7.5ZM7.5 8.53125V14.2188H10.5V8.53125H7.5ZM7.5 19.9062V25.5938H10.5V19.9062H7.5ZM7.5 31.2812V36.9688H10.5V31.2812H7.5ZM7.5 42.6562V48.3438H10.5V42.6562H7.5ZM7.5 54.0312V59.7188H10.5V54.0312H7.5ZM7.5 65.4062V71.0938H10.5V65.4062H7.5ZM7.5 76.7812V82.4688H10.5V76.7812H7.5Z"
-                  fill="#487145"
-                />
-              </svg>
-            </span>
+        <div className={aboutUs["what-we-offer"]} id="services">
+          <div className="arrow">
+            <img src={greenArrow} alt="arrow pointing downwards" />
           </div>
           <div className={aboutUs.title}>
             <h1>What we Offer</h1>
@@ -236,6 +214,33 @@ function App() {
               </span>
               <h3>Affordable packages</h3>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className={projectStyles.projects}>
+        <div className="arrow">
+          <img src={yellowArrow} alt="arrow pointing downwards" />
+        </div>
+        <h1 className={projectStyles.title}>Our Projects</h1>
+        <div>
+          {Array.from({ length: 4 }).map((_, i) => (
+            <Card key={i} />
+          ))}
+        </div>
+      </section>
+      <section>
+        <div className={testimonialStyles.testimonial}>
+          <div className="arrow">
+            <img src={yellowArrow} alt="arrow pointing downwards" />
+          </div>
+          <div className={testimonialStyles.title}>
+            <h1>Testimonies</h1>
+          </div>
+          <Carousel />
+        </div>
+        <div className={testimonialStyles.blog}>
+          <div className="arrow">
+            <img src={yellowArrow} alt="arrow pointing downwards" />
           </div>
         </div>
       </section>

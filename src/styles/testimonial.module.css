@@ -1,0 +1,16 @@
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.title h1 {
+  color: var(--black);
+  font-size: 3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 136.023%;
+  letter-spacing: 0.09rem;
+  width: 100%;
+  text-align: center;
+}

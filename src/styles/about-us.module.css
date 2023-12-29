@@ -1,13 +1,5 @@
 .about-us-container {
-  padding: 2rem 5% 5%;
   background: var(--white);
-}
-
-.arrow-down {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
 }
 
 .who-are-we {
