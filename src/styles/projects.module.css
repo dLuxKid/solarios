@@ -1,5 +1,7 @@
 .projects {
   background: #f2eecc;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .title {
@@ -41,6 +43,8 @@
   height: 12.5rem;
   flex-shrink: 0;
   border-radius: 0.5rem;
+  object-fit: fill;
+  object-position: center;
 }
 
 .card-info {

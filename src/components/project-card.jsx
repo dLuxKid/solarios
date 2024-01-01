@@ -1,10 +1,16 @@
 import styles from "../styles/projects.module.css";
+import img0 from "../img/projimg1.png";
+import img1 from "../img/projimg2.png";
+import img2 from "../img/projimg3.png";
+import img3 from "../img/projimg4.png";
 
-export default function Card() {
+const imgs = [img0, img1, img2, img3];
+
+export default function Card({ itemRef, idx }) {
   return (
-    <div className={styles.card}>
+    <div className={styles.card} ref={itemRef.ref}>
       <div className={styles["about-card"]}>
-        <div className={styles["card-img"]} />
+        <img src={imgs[idx]} className={styles["card-img"]} />
         <div className={styles["card-info"]}>
           <h2>United Nations Development Program</h2>
           <h4>Vietnam, Asia</h4>

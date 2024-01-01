@@ -1,29 +1,140 @@
 import "./App.css";
+import "./assets/ClashDisplay_Complete/Fonts/WEB/css/clash-display.css";
 
-import herosectionStyle from "./styles/herosection.module.css";
 import aboutUs from "./styles/about-us.module.css";
+import herosectionStyle from "./styles/herosection.module.css";
+import newsletterStyles from "./styles/newsletter.module.css";
 import projectStyles from "./styles/projects.module.css";
 import testimonialStyles from "./styles/testimonial.module.css";
 
-import Navbar from "./components/navbar";
+import Carousel from "./components/carousel";
 import Footer from "./components/footer";
+import Navbar from "./components/navbar";
 import Card from "./components/project-card";
 
-import logo from "./img/solarios-icon.svg";
 import img1 from "./img/1.png";
 import img2 from "./img/2.png";
 import img3 from "./img/3.png";
 import img4 from "./img/4.png";
-import yellowArrow from "./img/yellow-arr.svg";
 import greenArrow from "./img/green-arr.svg";
-import Carousel from "./components/carousel";
+import pattern from "./img/pattern.png";
+import logo from "./img/solarios-icon.svg";
+import yellowArrow from "./img/yellow-arr.svg";
+
+import { useRef } from "react";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
+  const heroRef = useRef(null);
+  const sectionRef = useRef(null);
+  const itemRefs = [
+    { position: "left", ref: useRef(null) },
+    { position: "right", ref: useRef(null) },
+    { position: "left", ref: useRef(null) },
+    { position: "right", ref: useRef(null) },
+  ];
+
+  useGSAP(
+    () => {
+      gsap
+        .timeline({ defaults: { ease: "power2.Out" } })
+        .fromTo(
+          heroRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 2, delay: 0 }
+        );
+    },
+    { scope: heroRef }
+  );
+
+  useGSAP(
+    () => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+          },
+        })
+        .fromTo(
+          sectionRef.current,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 1,
+            ease: "power2.Out",
+          }
+        );
+    },
+    { scope: sectionRef }
+  );
+
+  useGSAP(
+    () => {
+      itemRefs.forEach((itemRef, i) => {
+        const itemElement = itemRef.ref.current;
+
+        if (itemRef.position === "left") {
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: itemElement,
+                start: "top 80%",
+                // end: "+=100",
+              },
+            })
+            .fromTo(
+              itemElement,
+              {
+                x: "-100%",
+                opacity: 0,
+              },
+              {
+                x: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: "back.out",
+              }
+            );
+        }
+        if (itemRef.position === "right") {
+          gsap
+            .timeline({
+              scrollTrigger: {
+                trigger: itemElement,
+                start: "top 80%",
+                // end: "+=100",
+              },
+            })
+            .fromTo(
+              itemElement,
+              {
+                x: "+100%",
+                opacity: 0,
+              },
+              {
+                x: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: "power3.out",
+              }
+            );
+        }
+      });
+    },
+    { scope: itemRefs }
+  );
+
   return (
     <main id="#home">
       <div className={herosectionStyle.herosection}>
         <Navbar />
-        <div className={herosectionStyle.container}>
+        <div className={herosectionStyle.container} ref={heroRef}>
           <div className={herosectionStyle.wrapper}>
             <h1>Creating sustainable and energy-efficient buildings</h1>
             <p>
@@ -78,7 +189,7 @@ function App() {
         </div>
       </div>
       <section className={aboutUs["about-us-container"]} id="#about">
-        <div className={aboutUs["who-are-we"]}>
+        <div className={aboutUs["who-are-we"]} ref={sectionRef}>
           <div className="arrow">
             <img src={greenArrow} alt="arrow pointing downwards" />
           </div>
@@ -223,8 +334,8 @@ function App() {
         </div>
         <h1 className={projectStyles.title}>Our Projects</h1>
         <div>
-          {Array.from({ length: 4 }).map((_, i) => (
-            <Card key={i} />
+          {itemRefs.map((ref, i) => (
+            <Card key={i} idx={i} itemRef={ref} />
           ))}
         </div>
       </section>
@@ -238,12 +349,35 @@ function App() {
           </div>
           <Carousel />
         </div>
-        <div className={testimonialStyles.blog}>
+        {/* <div className={testimonialStyles.blog}>
           <div className="arrow">
             <img src={yellowArrow} alt="arrow pointing downwards" />
           </div>
-        </div>
+        </div> */}
       </section>
+      <div className={newsletterStyles["contact-us"]}>
+        <div className={newsletterStyles["contact-us-info"]}>
+          <h3>
+            Ready to create a better <br /> future for our planet?
+          </h3>
+          <button className="cta-btn">Contact us</button>
+        </div>
+        <div className={newsletterStyles.img}>
+          <img src={pattern} />
+        </div>
+      </div>
+      <div className={newsletterStyles.container}>
+        <div className={newsletterStyles.box}>
+          <p>
+            Subscribe to our News letter to stay updated with some tips and our
+            promo plans
+          </p>
+          <label>
+            <input type="text" placeholder="Enter your email" />
+            <button type="submit">Subscribe</button>
+          </label>
+        </div>
+      </div>
       <Footer />
     </main>
   );
