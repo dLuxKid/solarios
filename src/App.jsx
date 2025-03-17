@@ -46,7 +46,7 @@ function App() {
         .fromTo(
           heroRef.current,
           { opacity: 0 },
-          { opacity: 1, duration: 2, delay: 0 }
+          { opacity: 1, duration: 2, delay: 0.5 }
         );
     },
     { scope: heroRef }
